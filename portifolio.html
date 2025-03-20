@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Kuniix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(to right, #121212, #1a1a1a);
+            padding: 1em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ff4081;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 80px; /* Altura fixa para o header */
+        }
+
+        header h1 a {
+            font-family: 'Zen Tokyo Zoo', sans-serif;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #ff4081;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+        }
+
+        header h1 a:hover {
+            color: #ff80ab;
+            text-shadow: 0 0 15px #ff4081;
+        }
+
+        header nav {
+            display: flex;
+            gap: 1.5em;
+        }
+
+        header nav a {
+            color: #80deea;
+            font-size: 0.9em;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+        }
+
+        header nav a:hover {
+            color: #b2ebf2;
+            text-shadow: 0 0 10px #80deea;
+        }
+
+        /* Seções */
+        section {
+            padding: 6em 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+            scroll-margin-top: 80px; /* Ajuste para o scroll suave */
+        }
+
+        #sobre {
+            padding-top: 100px; /* Ajuste inicial para o header */
+            background-color: #1a1a1a;
+            border-top: 1px solid #424242;
+            border-bottom: 1px solid #424242;
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            color: #ff4081;
+            text-align: center;
+        }
+
+        section p {
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            text-align: center; /* Centraliza o bloco de texto */
+        }
+
+        .container p {
+            display: inline-block; /* Permite que o parágrafo respeite a largura do texto */
+            text-align: left; /* Alinha o texto dentro do bloco */
+            max-width: 600px; /* Define um limite para evitar que o texto fique muito largo */
+        }
+
+
+        /* Projetos */
+        #projetos {
+            background-color: #121212;
+        }
+
+        #repos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5em;
+            padding: 1em;
+        }
+
+        .projeto-card {
+            background: linear-gradient(to bottom, #222, #333);
+            border: 1px solid #ff4081;
+            border-radius: 10px;
+            padding: 1.5em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: #e0e0e0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .projeto-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 20px #ff4081;
+        }
+
+        .projeto-card h3 {
+            color: #80deea;
+            margin-bottom: 0.5em;
+        }
+
+        .projeto-card p {
+            font-size: 0.9em;
+            color: #b0b0b0;
+        }
+
+        .linguagens {
+            margin: 1em 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5em;
+        }
+
+        .linguagem {
+            background-color: #ff4081;
+            color: #121212;
+            padding: 0.3em 0.6em;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .projeto-card a {
+            color: #ff4081;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-block;
+            margin-top: 1em;
+        }
+
+        .projeto-card a:hover {
+            color: #ff80ab;
+        }
+
+        .projeto-card a i {
+            margin-left: 8px; /* Espaçamento entre o texto e o ícone */
+            font-size: 1.2em; /* Tamanho do ícone */
+        }
+
+        /* Contato */
+        #contato {
+            background-color: #1a1a1a;
+            border-top: 1px solid #424242;
+            border-bottom: 1px solid #424242;
+        }
+
+        #contato p {
+            margin-bottom: 1.5em;
+        }
+
+        #contato div {
+            display: flex;
+            justify-content: center;
+            gap: 1.5em;
+        }
+
+        #contato a {
+            color: #ff4081;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        #contato a:hover {
+            color: #ff80ab;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #121212;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 1.5em;
+            border-top: 2px solid #ff4081;
+        }
+        .highlight {
+            color: #ff4081
+        }
+
+        /* Media Queries para Responsividade */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                padding: 1em;
+                height: auto; /* Altura automática em telas menores */
+            }
+
+            header nav {
+                margin-top: 1em;
+                gap: 1em;
+            }
+
+            section {
+                padding: 5em 1em;
+            }
+
+            #sobre {
+                padding-top: 120px; /* Ajuste adicional para telas menores */
+            }
+
+            #repos {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 a {
+                font-size: 1.5em;
+            }
+
+            header nav a {
+                font-size: 0.8em;
+            }
+
+            section h2 {
+                font-size: 2em;
+            }
+
+            section p {
+                font-size: 1em;
+            }
+
+            #contato div {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><a href="#">&lt;/ln&gt;</a></h1>
+        <nav>
+            <a href="#sobre">Sobre</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <section id="sobre">
+        <h2 id ="texto"></h2>
+        <div class="container">
+        <p>🥇Olá! Sou Lucas Norato, desenvolvedor com experiência em Java, Spring Boot e Maven. Minha trajetória na tecnologia começou ao perceber que poderia unir minha paixão por resolver problemas à criação de soluções inovadoras. Venho aprimorando minhas habilidades em desenvolvimento web, enfrentando projetos desafiadores que exigem pensamento crítico e criatividade.</p>
+        <p>🚀Se você busca um desenvolvedor comprometido e em constante evolução, estou à disposição para colaborar em soluções tecnológicas que façam a diferença.
+        </p>
+    </div>
+    </section>
+
+    <section id="projetos">
+        <h2>Projetos</h2>
+        <div id="repos">
+            <!-- Projetos serão carregados dinamicamente aqui -->
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Me encontre nas redes sociais ou me envie uma mensagem 💬</p>
+        <div>
+            <a href="https://github.com/kuniix" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/lucas-norato-101664294/" target="_blank">LinkedIn</a>
+            <a href="https://wa.me/5544988117541?text=Ol%C3%A1%20Lucas%2C%20vim%20pelo%20link%20de%20seu%20portif%C3%B3lio." target="_blank">
+                WhatsApp</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Desenvolvido por <span class="highlight">Lucas Norato</span></p>
+    </footer>
+
+    <script>
+async function fetchRepos() {
+    try {
+        const response = await fetch("https://api.github.com/users/kuniix/repos");
+        const repos = await response.json();
+        const reposContainer = document.getElementById("repos");
+
+        // Filtra o repositório do portfólio (substitua "portfolio" pelo nome do seu repositório)
+        const filteredRepos = repos.filter(repo => repo.name !== "portfolio");
+
+        // Limita a 6 repositórios
+        const reposToShow = filteredRepos.slice(0, 6);
+
+        for (const repo of reposToShow) {
+            // Busca as linguagens do repositório
+            const languagesResponse = await fetch(repo.languages_url);
+            const languagesData = await languagesResponse.json();
+            const languages = Object.keys(languagesData); // Pega apenas os nomes das linguagens
+
+            // Cria o card do projeto
+            const repoElement = document.createElement("div");
+            repoElement.classList.add("projeto-card");
+            repoElement.innerHTML = `
+                <h3>${repo.name}</h3>
+                <p>${repo.description || "Sem descrição"}</p>
+                <div class="linguagens">
+                    ${languages.map(lang => `<span class="linguagem">${lang}</span>`).join(" ")}
+                </div>
+                <a href="${repo.html_url}" target="_blank">
+                    Ver no GitHub <i class="fab fa-github"></i>
+                </a>
+            `;
+            reposContainer.appendChild(repoElement);
+        }
+    } catch (error) {
+        console.error("Erro ao buscar repositórios:", error);
+    }
+}
+fetchRepos();
+    </script>
+
+    <script>
+        // Script para ajustar o padding-top da seção #sobre
+        function ajustarPadding() {
+            const header = document.querySelector('header');
+            const sobreSection = document.getElementById('sobre');
+            const headerHeight = header.offsetHeight;
+            sobreSection.style.paddingTop = `${headerHeight + 20}px`;
+        }
+        window.addEventListener('load', ajustarPadding);
+        window.addEventListener('resize', ajustarPadding);
+    </script>
+
+<script>
+    const texto = "Olá, meu nome é Lucas"; // Texto que será digitado
+    let i = 0;
+    const elemento = document.getElementById("texto");
+
+    function digitar() {
+      if (i < texto.length) {
+        elemento.innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(digitar, 100); // Tempo entre cada letra
+      } else {
+        setTimeout(reiniciar, 1000); // Aguarda 1 segundo antes de reiniciar
+      }
+    }
+
+    function reiniciar() {
+      i = 0;
+      elemento.innerHTML = ''; // Limpa o conteúdo do h2
+      digitar(); // Inicia o efeito novamente
+    }
+
+    digitar(); // Inicia a animação
+  </script>
+
+
+</body>
+</html>
